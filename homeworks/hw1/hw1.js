@@ -106,4 +106,26 @@ let result = ((0.6*10) + (0.7*10)) / 10;
 
 let numFromString = parseInt('100$');
 
-console.log(res, pos, secondSpace, strSubstr, strSubstring, stringNew, sum, numPi, numMax, numMin, numRandom, numRow, result, numFromString);
+// Объект. Задачи
+
+// 1. Создать объект с полем product, равным 'iphone'.
+
+let productObj = {
+    product: 'iphone'
+};
+
+// 2. Добавить в объект из предыдущей задачи поле price, равное 1000 и поле currency, равное 'dollar'.
+
+productObj.price = 1000;
+productObj.currency = 'dollar';
+
+// 3. Добавить поле details, которое будет содержать объект с полями model и color (значения этим полям придумайте сами).
+
+let det = {
+    model: '8S',
+    color: 'white'
+};
+
+productObj.details = det;
+
+console.log(res, pos, secondSpace, strSubstr, strSubstring, stringNew, sum, numPi, numMax, numMin, numRandom, numRow, result, numFromString, productObj);
