@@ -64,16 +64,24 @@ function editTask(id, text) {
     return todos;
 }
 
-// another variant
-// If we don't want to search through all the array, just select an item by ID
+// additional check... optional...not sure
 
-function editTask2(id, text) {
-    if (id !== 0 && !id) return new Error('ID is required');
-    if (isNaN(id)) return new Error('ID must be a number');
-    id = Number(id);
-    if (typeof text !== 'string') return new Error('text is not a string');
-    if (!text.length) return new Error('text empty');
-
-    todos[id].text = text;
-    return todos;
-}
+// function editTask2(id, text) {
+//     if (id !== 0 && !id) return new Error('ID is required');
+//     if (isNaN(id)) return new Error('ID must be a number');
+//     id = Number(id);
+//     if (typeof text !== 'string') return new Error('text is not a string');
+//     if (!text.length) return new Error('text empty');
+//
+//     if (todos[id] === id){
+//         todos[id].text = text;
+//     } else {
+//         for (let i = 0; i < todos.length; i++) {
+//             if (todos[i].id === id) {
+//                 todos[i].text = text;
+//                 break;
+//             }
+//         }
+//     }
+//     return todos;
+// }
