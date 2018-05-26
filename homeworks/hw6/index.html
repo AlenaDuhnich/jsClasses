@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<section class="tasks-wrap mt-5">
+    <div class="container">
+        <div class="card mb-3">
+            <div class="card-header">
+                Add todo
+            </div>
+            <div class="card-body">
+                <form name="addTodoItem">
+                    <div class="form-group">
+                        <label for="todoText">Text</label>
+                        <input type="text" class="form-control" id="todoText">
+                        <div class="invalid-feedback">
+                            Please enter some text
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-3 list-card">
+            <div class="card-header">
+                Task list
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <!--<li class="list-group-item">Cras justo odio</li>-->
+                </ul>
+            </div>
+        </div>
+        <button class="btn btn-primary clear-btn">Clear list</button>
+    </div>
+</section>
+<script src="hw6.js"></script>
+</body>
+</html>
