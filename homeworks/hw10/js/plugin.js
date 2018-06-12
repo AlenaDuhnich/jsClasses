@@ -16,6 +16,8 @@ const timer = (function () {
   function start(seconds) {
     if(typeof seconds !== "number") return new Error('Please provide seconds!');
 
+    stop();
+
     const now = Date.now();
     const then = now + seconds * 1000;
 
@@ -60,8 +62,10 @@ const timer = (function () {
     endTime.textContent = `Be back at ${endDate} ${hour}:${minutes < 10 ? '0' : ''}${minutes}`;
   }
 
-  function stop(seconds) {
+  function stop() {
+    if(!countdown) return;
     clearInterval(countdown);
+    countdown = null;
     alarmSound.pause();
     alarmSound.currentTime = 0;
   }
