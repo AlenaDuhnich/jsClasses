@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6" *ngFor="let product of products; let i = index">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <h3>{{ product.price }}</h3>
+          <p>{{ product.info }}</p>
+          <button (click)="product.reviewsShow = !product.reviewsShow">Show reviews</button>
+          <button (click)="deleteProduct(i)">Delete</button>
+          <ul *ngIf="product.reviewsShow">
+            <li *ngFor="let review of product.reviews">
+              <span>{{ review.name }}</span>
+              <p>{{ review.text }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info" *ngIf="!products.length">No one post is here</div>
+  </div>
+</div>
