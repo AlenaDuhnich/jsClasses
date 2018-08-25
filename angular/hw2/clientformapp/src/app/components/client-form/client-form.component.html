@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-body">
+      <form novalidate (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            [(ngModel)]="client.name"
+            [ngClass]="{'is-invalid': itemName.errors && form.submitted}"
+            #itemName="ngModel"
+            required
+            minlength="2"
+          >
+          <div class="invalid-feedback" [hidden]="!itemName.errors?.required">Item name is required</div>
+          <div class="invalid-feedback" [hidden]="!itemName.errors?.minlength">Item name must be at least 2 chars</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            [(ngModel)]="client.email"
+            [ngClass]="{'is-invalid': itemEmail.errors && form.submitted}"
+            #itemEmail="ngModel"
+            required
+            email
+          >
+          <div class="invalid-feedback" [hidden]="!itemEmail.errors?.required">Item email is required</div>
+          <div class="invalid-feedback" [hidden]="!itemEmail.errors?.email">Email is invalid</div>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            class="form-control"
+            [(ngModel)]="client.age"
+            [ngClass]="{'is-invalid': itemAge.errors && form.submitted}"
+            #itemAge="ngModel"
+            required
+          >
+          <div class="invalid-feedback" [hidden]="!itemAge.errors?.required">Age is required</div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            class="form-control"
+            [(ngModel)]="client.phone"
+            [ngClass]="{'is-invalid': itemPhone.errors && form.submitted}"
+            #itemPhone="ngModel"
+            required
+          >
+          <div class="invalid-feedback" [hidden]="!itemPhone.errors?.required">Phone is required</div>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <textarea
+            name="comments"
+            id="comments"
+            class="form-control"
+            [(ngModel)]="client.comments"
+            #itemComments="ngModel"
+          ></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+  <div class="alert alert-info mb-3">Item name: {{ client.name || 'n/a' }}, item email: {{ client.email || 'n/a' }}, item age: {{ age || 'n/a' }}, item phone: {{ client.phone || 'n/a' }}, item comments: {{ client.comments || 'n/a' }}</div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of clientList">
+      <td scope="row">{{ clientList.indexOf(item) + 1 }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.age }}</td>
+      <td>{{ item.phone }}</td>
+      <td>{{ item.comments }}</td>
+      <td><button (click)="deleteItem(item)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
